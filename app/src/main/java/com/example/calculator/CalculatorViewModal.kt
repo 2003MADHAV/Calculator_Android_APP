@@ -9,7 +9,7 @@ class CalculatorViewModal : ViewModel(){
 
     var state by mutableStateOf(CalculatorState())
 
-        private set
+
 
     fun onAction(action: CalculatorAction){
         when(action){
@@ -18,7 +18,7 @@ class CalculatorViewModal : ViewModel(){
             is CalculatorAction.Operation -> enterOperation(action.operation)
             is CalculatorAction.Calculate -> performCalculation()
             is CalculatorAction.Delete -> performDeletion()
-            CalculatorAction.Clear -> TODO()
+            is CalculatorAction.Clear -> state = CalculatorState()
         }
 
     }
